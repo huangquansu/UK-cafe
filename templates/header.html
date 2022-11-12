@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coffee Recommend</title>
+    <!--css-->
+    <link href="{{ url_for('static', filename='css/styles.css') }}", rel="stylesheet">
+<!--    bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+<!--    google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;900&family=Pacifico&display=swap" rel="stylesheet">
+<!--    font awesome-->
+    <script src="https://kit.fontawesome.com/e525bca573.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
+        <div class="container-fluid nav-font">
+
+            <a class="navbar-brand nav-font" href="/"><i class="fa-solid fa-wifi nav-icon"></i> UK FRIENDLY</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Togggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{{url_for('add_new_shop')}}"><span class="s-line"><i class="fa-solid fa-map-location-dot"></i> SUGGEST PLACES</span></a>
+                </li>
+                {% if not logged_in %}
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{{ url_for('login') }}"><span class="s-line"><i class="fa-solid fa-people-group"></i> JOIN COMMUNITY</span></a>
+                </li>
+                {% endif %}
+                {% if logged_in %}
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{{ url_for('logout')}}"><span class="s-line"><i class="fa-solid fa-people-group"></i> LOG OUT</span></a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+
+    </nav>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</body>
+</html>

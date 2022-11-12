@@ -1,0 +1,107 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% include "header.html" %}
+<header class="shop-bg" style="background-image: url('{{ shop.img_url }}')">
+    <div class="bg-word">
+        <h1 class="shop-name">{{ shop.name }}</h1>
+    </div>
+</header>
+
+<section class="shop-section">
+    <div>
+        <div class="row">
+            <div class="col-lg-3">
+                <h2>FEATURE</h2>
+            </div>
+            <div class="row col-lg-9">
+                {% if shop.has_sockets == 0 %}
+                <div class="col-lg-4 not-feature">
+                    <h3>SOCKETS</h3>
+                    <h4><i class="fa-solid fa-plug"></i></h4>
+                </div>
+                {% else %}
+                <div class="col-lg-4">
+                    <h3>SOCKETS</h3>
+                    <h4><i class="fa-solid fa-plug"></i></h4>
+                </div>
+                {% endif %}
+                {% if shop.can_take_calls == 0 %}
+                <div class="col-lg-4 not-feature">
+                    <h3>CALL</h3>
+                    <h4><i class="fa-solid fa-phone-volume"></i></h4>
+                </div>
+                {% else %}
+                <div class="col-lg-4">
+                    <h3>CALL</h3>
+                    <h4><i class="fa-solid fa-phone-volume"></i></h4>
+                </div>
+                {% endif %}
+                <div class="col-lg-4">
+                    <h3>SEATS</h3>
+                    <h4><i class="fa-solid fa-couch"></i>{{ shop.seats }}</h4>
+                </div>
+                {% if shop.has_toilet == 0 %}
+                <div class="col-lg-4 not-feature">
+                    <h3>TOILET</h3>
+                    <h4><i class="fa-solid fa-restroom"></i></h4>
+                </div>
+                {% else %}
+                <div class="col-lg-4">
+                    <h3>TOILET</h3>
+                    <h4><i class="fa-solid fa-restroom"></i></h4>
+                </div>
+                {% endif %}
+                {% if shop.has_wifi == 0 %}
+                <div class="col-lg-4 not-feature">
+                    <h3>WIFI</h3>
+                    <h4><i class="fa-solid fa-wifi"></i></h4>
+                </div>
+                {% else %}
+                <div class="col-lg-4">
+                    <h3>WIFI</h3>
+                    <h4><i class="fa-solid fa-wifi"></i></h4>
+                </div>
+                {% endif %}
+                <div class="col-lg-4">
+                    <h3>COFFEE PRICE</h3>
+                    <h4>{{ shop.coffee_price }}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="shop-place">
+        <h2>LOCATION</h2>
+        <div class="location-box">
+            <h3>{{ shop.location }}</h3>
+            <div class="mapouter  location-box">
+                <div class="gmap_canvas">
+                    <iframe width="600" height="500" id="gmap_canvas" src="{{shop_src}}" frameborder="0" scrolling="no"
+                            marginheight="0" marginwidth="0"></iframe>
+                    <a href="https://123movies-to.org">123 movies</a><br>
+                    <style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style>
+                    <a href="https://www.embedgooglemap.net">google maps for web site</a>
+                    <style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="shop-place">
+        <h3>COMMENTS</h3>
+        <div>
+            {% for comment in comments %}
+            <div class="row comment-box">
+                <div class="commentImg col-lg-1">
+                    <img src="{{ comment.comment_author.email|gravatar }}">
+                </div>
+                <div class="col-lg-11">
+                    <p>{{ comment.text|safe }}</p>
+                    <span>{{ comment.comment_author.name }}</span>
+                </div>
+                <br>
+            </div>
+            {% endfor %}
+        </div>
+        {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+    </div>
+    <a href="{{ url_for('search') }}"><p>go back</p></a>
+</section>
+{% include "footer.html" %}

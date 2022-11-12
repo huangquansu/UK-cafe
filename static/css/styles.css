@@ -1,0 +1,198 @@
+
+body{
+    padding-top: 55px;
+    overflow-x: hidden;
+}
+
+h1 {
+    font-family: 'Crimson Pro', serif;
+    font-weight: 900 !important;
+    font-size: 3.5rem !important;
+}
+
+p {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.5rem !important
+}
+/* navbar */
+.nav-font {
+    font-family: 'Pacifico', cursive;
+    font-size: 10px
+}
+
+.nav-icon {
+    color: #FFF
+}
+
+.s-line {
+    white-space: nowrap;
+    color: #FFF
+}
+
+/* header */
+.header-bg{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position:center;
+
+
+    width:100%;
+}
+
+.header-content {
+    padding:5%;
+    color: #FFF;
+    text-align: center;
+    margin:0% 5%;
+    position:relative;
+    z-index:100;
+}
+
+.header-link{
+    text-align: center;
+    position:relative;
+    z-index:10;
+}
+
+.transparent-bg {
+    width:full;
+    background-color: rgba(100,100,100,0.3);
+
+}
+
+.header-btn {
+    font-size: 1.75rem !important;
+    margin: 5%;
+    position:relative;
+    z-index:10;
+}
+/*shop*/
+.btn-filter:hover {
+    background-color: #C3F8FF;
+    color: #FFFFFF;
+}
+
+.btn-filter[aria-expanded='true'] {
+    background-color: #472D2D;
+    color: #FFFFFF
+
+}
+
+.i-section {
+    padding: 2% 5%;
+}
+
+
+.i-border {
+    padding:1%;
+    text-align: center;
+}
+
+
+/* shop data */
+
+.filter-png {
+    color: #FFB200;
+}
+
+.shop-gif {
+    width: 10rem;
+    height: 8rem;
+}
+#####
+
+#map-canvas {
+    height:400px;
+}
+
+/* footer */
+.footer-border {
+
+    bottom: 0;
+    padding:2%;
+    text-align:center;
+    width: 100%;
+    color: #00FFD1;
+    background-color: #EDE4E0;
+}
+
+.footer-icon {
+    padding: 0% 1%;
+
+}
+/*login*/
+.login-title {
+    padding:9% 5% 1% 5%;
+    text-align: center;
+    margin:auto;
+}
+
+.login-form {
+    padding:2% 5% 5% 5%;
+    width: 30%;
+    margin:auto;
+}
+
+.form-group {
+    margin:3% 0%;
+}
+/*shop*/
+.shop-bg {
+    position: relative;
+    background-size: cover;
+    background-position:center;
+    height: 26rem;
+    width: 100%;
+    overflow: hidden;
+    background-repeat: no-repeat;
+}
+
+.bg-word {
+    left: 100px;
+    position: absolute;
+    bottom: 0px;
+    color: #F7F7F7;
+}
+}
+
+.shop-name {
+
+}
+
+.shop-section {
+    position: relative;
+    padding: 2% 5%
+}
+
+.not-feature {
+    color: #EDE4E0;
+}
+
+.shop-place {
+    padding:2% 0%;
+}
+
+.location-box {
+    margin:auto;
+    text-align: center;
+}
+
+.commentImg {
+    width: 30px;
+    height: 100%;
+}
+
+.commentImg img {
+    width:100%;
+    border-radius:50%;
+}
+
+.comment-box {
+    padding:1%
+}
+/*login*/
+.flash-control {
+    color: #CF0A0A;
+}
+

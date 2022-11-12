@@ -1,0 +1,23 @@
+<head>
+    {% include "header.html" %}
+</head>
+<body>
+<header class="header-bg" style="background-image: url({{url_for('static', filename='img/coffee.jpg')}})">
+
+    <div class="transparent-bg">
+        <div class="header-content">
+            <h1>LIKE COWORKING<br>BUT BETTER</h1>
+            <p>Discover everyday places to work and study.</p>
+
+        </div>
+
+    </div>
+            <div class="header-link">
+            <a class="btn btn-dark btn-lg header-btn" href="{{url_for('search')}}"><span class="s-line">Explore Coffee Shop</span></a>
+        </div>
+</header>
+{% include "footer.html" %}
+</body>
+
+
+

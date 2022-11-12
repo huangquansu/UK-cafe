@@ -1,0 +1,195 @@
+{% include "header.html" %}
+<section class="i-section">
+    <h1 class="filter">FILTERS</h1>
+    <div class="row filter-control">
+        <div class="i-border col-lg-3">
+            <button class="btn btn-filter" type="button" data-bs-toggle="collapse" data-bs-target="#SocKet"
+                    aria-expanded="false" aria-controls="SocKet">
+
+                <i class="fa-solid fa-plug fa-2x"></i>
+                <br>
+                <span>Socket</span>
+
+            </button>
+        </div>
+        <div class="i-border col-lg-3">
+            <button class="btn btn-filter" type="button" data-bs-toggle="collapse" data-bs-target="#RestRoom"
+                    aria-expanded="false" aria-controls="RestRoom">
+                <i class="fa-solid fa-restroom fa-2x"></i>
+                <br>
+                <span>Restroom</span>
+            </button>
+        </div>
+        <div class="i-border col-lg-3">
+            <button class="btn btn-filter" type="button" data-bs-toggle="collapse" data-bs-target="#WIFI"
+                    aria-expanded="false" aria-controls="WIFI">
+                <i class="fa-solid fa-wifi fa-2x"></i>
+                <br>
+                <span>Wifi</span>
+            </button>
+        </div>
+        <div class="i-border col-lg-3">
+            <button class="btn btn-filter" type="button" data-bs-toggle="collapse" data-bs-target="#CAll"
+                    aria-expanded="false" aria-controls="#CALL">
+                <i class="fa-solid fa-phone-volume fa-2x"></i>
+                <br>
+                <span>Call</span>
+            </button>
+        </div>
+    </div>
+
+</section>
+<section class="i-section" id="filter-sec">
+    <h1 class="filter">Shop</h1>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="shop-div" id="accordion">
+                <div class="collapse multi-collapse" id="SocKet" data-bs-parent="#accordion">
+
+                    {% for socket_data in socket_query %}
+                    <div class="shop-div">
+
+                        <div class="row">
+                            <img src="{{ socket_data.img_url }}" class="shop-gif col-lg-3">
+                            <div class="col-lg-9">
+                                <h4 class="sql_name">{{ socket_data.name }}</h4>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <h5 class="col-lg-9">Seat: {{ socket_data.seats }}</h5>
+                                        <h5 class="col-lg-9">Price: {{ socket_data.coffee_price }}</h5>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <i class="fa-solid fa-plug fa-2x filter-png"></i>
+                                        <br>
+                                    </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="col-lg-9">
+                                <h5>Location: {{ socket_data.location }}</h5>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <a href="{{url_for('show_shop', shop_id=socket_data.id)}}"><p>detail</p></a>
+                                    </div>
+                                    </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    {% endfor %}
+                </div>
+                <div class="collapse multi-collapse" id="RestRoom" data-bs-parent="#accordion">
+
+                    {% for toilet_data in toilet_query %}
+                    <div class="shop-div">
+
+                        <div class="row">
+                            <img src="{{ toilet_data.img_url }}" class="shop-gif col-lg-3">
+                            <div class="col-lg-9">
+                                <h4 class="sql_name">{{ toilet_data.name }}</h4>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <h5 class="col-lg-9">Seat: {{ toilet_data.seats }}</h5>
+                                        <h5 class="col-lg-9">Price: {{ toilet_data.coffee_price }}</h5>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <i class="fa-solid fa-restroom fa-2x filter-png"></i>
+                                        <br>
+
+                                    </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="col-lg-9">
+                                <h5>Location: {{ toilet_data.location }}</h5>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <a href="{{url_for('show_shop', shop_id=toilet_data.id)}}"><p>detail</p></a>
+                                    </div>
+                                    </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    {% endfor %}
+                </div>
+                <div class="collapse multi-collapse" id="WIFI" data-bs-parent="#accordion">
+
+                    {% for wifi_data in wifi_query %}
+                    <div class="shop-div">
+
+                        <div class="row">
+                            <img src="{{ wifi_data.img_url }}" class="shop-gif col-lg-3">
+                            <div class="col-lg-9">
+                                <h4 class="sql_name">{{ wifi_data.name }}</h4>
+                                    <div class="row">
+                                    <div class="col-lg-6">
+                                        <h5 class="col-lg-9">Seat: {{ wifi_data.seats }}</h5>
+                                        <h5 class="col-lg-9">Price: {{ wifi_data.coffee_price }}</h5>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <i class="fa-solid fa-wifi fa-2x filter-png"></i>
+                                        <br>
+                                    </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="col-lg-9">
+                                <h5>Location: {{ wifi_data.location }}</h5>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <a href="{{url_for('show_shop', shop_id=wifi_data.id)}}"><p>detail</p></a>
+                                    </div>
+                                    </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    {% endfor %}
+                </div>
+                <div class="collapse multi-collapse" id="CAll" data-bs-parent="#accordion">
+
+                    {% for call_data in call_query %}
+                    <div class="shop-div">
+
+                        <div class="row">
+
+                            <img src="{{ call_data.img_url }}" class="shop-gif col-lg-3">
+                            <div class="col-lg-9">
+                                <h4 class="sql_name">{{ call_data.name }}</h4>
+
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <h5 class="col-lg-9">Seat: {{ call_data.seats }}</h5>
+                                        <h5 class="col-lg-9">Price: {{ call_data.coffee_price }}</h5>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <i class="fa-solid fa-phone-volume fa-2x filter-png"></i>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-9">
+                                <h5>Location: {{ call_data.location }}</h5>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <a href="{{url_for('show_shop', shop_id=call_data.id)}}"><p>detail</p></a>
+                                    </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div id="map_canvas">
+
+            </div>
+            <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"></script>
+        </div>
+    </div>
+</section>
+{% include "footer.html" %}
