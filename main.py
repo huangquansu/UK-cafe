@@ -21,7 +21,9 @@ db = SQLAlchemy(app)
 bootstrap = Bootstrap(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
-gravatar = Gravatar(app, rating='g', default='retro', force_default=False, force_lower=False, use_ssl=False, base_url=None)
+gravatar = Gravatar(app, rating='g', default='retro', force_default=False, force_lower=False, use_ssl=False,
+                    base_url=None)
+
 
 class Join(FlaskForm):
     name = StringField('Your name', validators=[DataRequired()])
@@ -41,7 +43,7 @@ class CafeComment(FlaskForm):
     submit = SubmitField('SUBMIT COMMENT')
 
 
-class New_shop(FlaskForm):
+class NewShop(FlaskForm):
     shop_name = StringField('Shop name', validators=[DataRequired()])
     map_url = StringField('address_url', validators=[DataRequired()])
     shop_img = StringField('Photo_url', validators=[DataRequired()])
@@ -49,7 +51,7 @@ class New_shop(FlaskForm):
     socket = StringField('socket', validators=[DataRequired()], render_kw={'placeholder': '1 or 0'})
     toilet = StringField('toilet', validators=[DataRequired()], render_kw={'placeholder': '1 or 0'})
     wifi = StringField('wifi', validators=[DataRequired()], render_kw={'placeholder': '1 or 0'})
-    call = StringField('call',validators=[DataRequired()], render_kw={'placeholder': '1 or 0'})
+    call = StringField('call', validators=[DataRequired()], render_kw={'placeholder': '1 or 0'})
     seat = StringField('seats', validators=[DataRequired()], render_kw={'placeholder': '10~20+'})
     price = StringField('coffee_price', validators=[DataRequired()], render_kw={'placeholder': 'EU coin'})
     submit = SubmitField("Suggest place")
@@ -108,7 +110,6 @@ def admin_only(function):
     return decorate_function
 
 
-
 @login_manager.user_loader
 def load_user(user_id):
     return Account.query.get(user_id)
@@ -125,7 +126,8 @@ def search():
     toilet_query = Cafe.query.filter_by(has_toilet=1)
     wifi_query = Cafe.query.filter_by(has_wifi=1)
     call_query = Cafe.query.filter_by(can_take_calls=1)
-    return render_template('city.html', socket_query=socket_query, toilet_query=toilet_query, wifi_query=wifi_query, call_query=call_query)
+    return render_template('city.html', socket_query=socket_query, toilet_query=toilet_query, wifi_query=wifi_query,
+                           call_query=call_query)
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -192,12 +194,13 @@ def show_shop(shop_id):
     comment = Comment.query.filter_by(post_id=shop_id)
     shop_rename = request_shop.name.replace(' ', '%20')
     shop_src = f"https://maps.google.com/maps?q={shop_rename}&t=&z=13&ie=UTF8&iwloc=&output=embed"
-    return render_template('shop.html', form=form, logged_in=current_user.is_authenticated, shop=request_shop, comments=comment, shop_src=shop_src)
+    return render_template('shop.html', form=form, logged_in=current_user.is_authenticated, shop=request_shop,
+                           comments=comment, shop_src=shop_src)
 
 
 @app.route("/new-shop", methods=['GET', 'POST'])
 def add_new_shop():
-    form = New_shop()
+    form = NewShop()
     if form.validate_on_submit():
         if not current_user.is_authenticated:
             flash("You need to login or register to comment")
