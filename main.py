@@ -13,7 +13,7 @@ from flask_gravatar import Gravatar
 import os
 
 
-# app = Flask(__name__)
+app = Flask(__name__)
 # uri = os.getenv("DATABASE_URL", 'sqlite:///cafes.db')
 # if uri.startswith("postgres://"):
 #     uri = uri.replace("postgres://", "postgresql://", 1)
